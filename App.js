@@ -15,15 +15,18 @@ import {
 } from 'react-native';
 import Api from './src/core/Api';
 import {Scene, Router} from 'react-native-router-flux';
-
-import Home from './src/scenes/HomeScene';
+import Home from './src/scenes/Home';
+import Rooms from './src/scenes/Rooms';
+import Room from './src/scenes/Room';
 
 export default class App extends Component {
   render() {
     return (
       <Router>
-          <Scene key={'home'} title={'Accueil'} component={Home} />
-        </Router>
+          <Scene key={'home'} title={'Accueil'} hideNavBar={true} component={Home} />
+          <Scene key={'rooms'} title={'Rooms'} component={Rooms} />
+          <Scene key={'room'} title={'Room'} component={Room} />
+      </Router>
     );
   }
 }
