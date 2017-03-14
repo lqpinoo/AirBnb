@@ -51,8 +51,7 @@ class Card extends React.Component {
                 </TouchableOpacity>
                 <View style={styles.meta}>
                     <Text style={styles.metaText}>
-                        - {this.props.rowData.reviews}
-                        commentaires
+                        - {this.props.rowData.reviews} commentaires
                     </Text>
                 </View>
             </View>

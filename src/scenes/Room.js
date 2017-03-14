@@ -26,11 +26,13 @@ class Room extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <Image source={{
                     uri: this.props.rowData.photos[0]
                 }} style={styles.bigPhoto}/>
               <Text style={styles.price}>{this.props.rowData.price} euros</Text>
+                <View style={styles.cardHolder}>
+                </View>
                 <ScrollView style={styles.card}>
                     <Text style={styles.title}>{this.props.rowData.title}</Text>
                     <TouchableOpacity >
@@ -39,7 +41,7 @@ class Room extends React.Component {
                     <View style={styles.metaHolder}>
                       <View style={styles.metaOne}>
                       <Text style={styles.userAbout}>A propos de {this.props.rowData.user.account.username} :</Text>
-                      <Text style={styles.userDesc}>{this.props.rowData.user.account.description}</Text>
+                      <Text style={styles.userDesc} numberOfLines={6}>{this.props.rowData.user.account.description}</Text>
                       </View>
                       <View style={styles.metaTwo}>
                       <Image source={{
@@ -48,7 +50,7 @@ class Room extends React.Component {
                       </View>
                     </View>
                 </ScrollView>
-            </View>
+            </ScrollView>
         );
     }
 }
@@ -57,24 +59,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#efefef',
-        position: 'relative',
-        alignItems: 'center'
+        paddingBottom:10,
     },
     bigPhoto: {
         width: '100%',
         height: 280
     },
     userPhoto: {
-        width: '100%',
-        height: 200,
+        width: 150,
+        height: 150,
     },
     card: {
-        position: 'absolute',
+        flex:1,
         width: '95%',
-        top: 240,
+        alignSelf:'center',
+        top: 10,
         padding: 10,
         paddingBottom:30,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        marginTop: -50,
+        marginBottom:25,
     },
     title: {
         color: '#FF5A5F',
@@ -97,6 +101,7 @@ const styles = StyleSheet.create({
     },
     userAbout: {
       fontFamily: 'Circular_Air-Bold',
+      marginBottom:15,
     },
     userDesc: {
       textAlign:'justify',
@@ -119,7 +124,7 @@ const styles = StyleSheet.create({
     price: {
         position: 'absolute',
         top: 202,
-        right: 10,
+        right: 12,
         color: 'white',
         padding: 10,
         paddingLeft: 15,

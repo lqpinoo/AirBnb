@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         borderRadius: 4,
         backgroundColor: 'white',
-        elevation: 2
     },
     pageTitle: {
         textAlign: 'center',
