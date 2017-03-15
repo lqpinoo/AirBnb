@@ -39,7 +39,7 @@ class Rooms extends React.Component {
 
     renderItem(rowData) {
         return (
-          <Card rowData={rowData} />
+          <Card rowData={rowData}/>
         )
     }
 

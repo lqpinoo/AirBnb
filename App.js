@@ -18,14 +18,16 @@ import {Scene, Router} from 'react-native-router-flux';
 import Home from './src/scenes/Home';
 import Rooms from './src/scenes/Rooms';
 import Room from './src/scenes/Room';
+import User from './src/scenes/User';
 
 export default class App extends Component {
   render() {
     return (
-      <Router>
-          <Scene key={'home'} title={'Accueil'} hideNavBar={true} component={Home} />
+      <Router navigationBarStyle={{backgroundColor: '#FF5A5F'}} barButtonIconStyle={{ tintColor: '#fff' }} titleStyle={{color : "#FFF"}} >
+          <Scene  key={'home'} title={'Accueil'} hideNavBar={true} component={Home} />
           <Scene key={'rooms'} title={'Rooms'} component={Rooms} />
-          <Scene key={'room'} title={'Room'} component={Room} />
+          <Scene key={'room'} title={'Room'} hideNavBar={false} component={Room}/>
+          <Scene key={'user'} title={'User'} hideNavBar={false} component={User} />
       </Router>
     );
   }

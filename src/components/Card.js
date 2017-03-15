@@ -12,7 +12,8 @@ import {
     TouchableHighlight
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-
+import Stars from './Stars';
+import UserAvatar from './UserAvatar';
 class Card extends React.Component {
 
     constructor(props) {
@@ -38,9 +39,9 @@ class Card extends React.Component {
                         {this.props.rowData.price}
                         euros
                     </Text>
-                    <Image source={{
-                        uri: this.props.rowData.user.account.photos[0]
-                    }} style={styles.userPhoto}/>
+                    <UserAvatar
+                      photo={this.props.rowData.user.account.photos[0]}
+                      style={styles.userPhoto}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={goToRoom}>
                     <View style={styles.description}>
@@ -50,6 +51,7 @@ class Card extends React.Component {
                     </View>
                 </TouchableOpacity>
                 <View style={styles.meta}>
+                    <Stars ratingValue={this.props.rowData.ratingValue} />
                     <Text style={styles.metaText}>
                         - {this.props.rowData.reviews} commentaires
                     </Text>
@@ -101,22 +103,12 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         paddingLeft: 15,
         paddingBottom: 20,
-        borderBottomColor: '#333',
+        borderBottomColor: 'rgba(255, 255, 255, 0.5)',
         borderBottomWidth: StyleSheet.hairlineWidth
     },
     bigPhoto: {
         width: '100%',
         height: 220
-    },
-    userPhoto: {
-        position: 'absolute',
-        width: 60,
-        height: 60,
-        left: 0,
-        top: 20,
-        borderRadius: 50,
-        borderColor: 'white',
-        borderWidth: 4
     },
     description: {
         width: '100%',
@@ -124,13 +116,13 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         paddingRight: 20,
         paddingLeft: 15,
-        borderBottomColor: '#bbb',
+        borderBottomColor: 'rgba(255, 255, 255, 0.4)',
         borderBottomWidth: StyleSheet.hairlineWidth
     },
     price: {
         position: 'absolute',
         top: 30,
-        left: 50,
+        left: 55,
         color: 'white',
         padding: 10,
         paddingLeft: 15,

@@ -21,7 +21,7 @@ class Home extends React.Component {
         super(props);
 
     }
-
+    
     render() {
         return (
             <Image source={require('../../assets/img/home.jpg')} style={styles.cover}>
@@ -52,24 +52,24 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: '90%',
-        height: 140
+        height: 200
     },
     imgLogo: {
         width: '100%',
         height: 100
     },
     buttonRooms: {
-        width: '92%',
+        width: '80%',
         paddingTop: 14,
         paddingBottom: 14,
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingLeft: 8,
+        paddingRight: 8,
         borderRadius: 4,
         backgroundColor: 'white',
     },
     pageTitle: {
         textAlign: 'center',
-        fontSize: 17,
+        fontSize: 15,
         fontFamily: 'Circular_Air-Book',
         color: '#FF5A5F',
     }

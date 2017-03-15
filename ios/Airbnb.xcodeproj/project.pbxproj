@@ -39,6 +39,7 @@
 		C4260DEE287348E08D9E40B6 /* Circular_Air-Book_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 633007251B8B44138C2D37EF /* Circular_Air-Book_Italic.ttf */; };
 		DA851E62D8DC4E8BA6C37D1E /* Circular_Air-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6934DF8FDEDD4DE89C58D795 /* Circular_Air-Book.ttf */; };
 		80F22D1089854212B9221F17 /* Circular_Air-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCFDAFCEEBB4BF8805744E1 /* Circular_Air-Light.ttf */; };
+		3AFE4DBCBA604CFC93FA8360 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A34CB8EC1C44BAF8C7D0F60 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +263,8 @@
 		633007251B8B44138C2D37EF /* Circular_Air-Book_Italic.ttf */ = {isa = PBXFileReference; name = "Circular_Air-Book_Italic.ttf"; path = "../assets/fonts/Circular_Air-Book_Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6934DF8FDEDD4DE89C58D795 /* Circular_Air-Book.ttf */ = {isa = PBXFileReference; name = "Circular_Air-Book.ttf"; path = "../assets/fonts/Circular_Air-Book.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7BCFDAFCEEBB4BF8805744E1 /* Circular_Air-Light.ttf */ = {isa = PBXFileReference; name = "Circular_Air-Light.ttf"; path = "../assets/fonts/Circular_Air-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FBEB608340D34CD697ECCA7A /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		3A34CB8EC1C44BAF8C7D0F60 /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				3AFE4DBCBA604CFC93FA8360 /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +458,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				FBEB608340D34CD697ECCA7A /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -996,6 +1001,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airbnb.app/Airbnb";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1013,6 +1026,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airbnb.app/Airbnb";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1031,6 +1052,10 @@
 				);
 				PRODUCT_NAME = Airbnb;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1048,6 +1073,10 @@
 				);
 				PRODUCT_NAME = Airbnb;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1074,6 +1103,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1100,6 +1137,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-maps\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1121,6 +1166,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airbnb-tvOS.app/Airbnb-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1142,6 +1191,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airbnb-tvOS.app/Airbnb-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};
