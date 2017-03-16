@@ -12,7 +12,7 @@ class Api {
   fetch(`http://10.0.2.2:3001/api/user/${id}`)
     .then(res => res.json())
     .then(account => {
-      callbackRoom(account)
+      callbackAccount(account)
     });
   }
 

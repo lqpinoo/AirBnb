@@ -18,6 +18,7 @@ import Map from 'react-native-maps';
 import Api from '../core/Api';
 import UserAvatar from '../components/UserAvatar';
 import Stars from '../components/Stars';
+import Desc from '../components/Desc';
 
 class Room extends React.Component {
     constructor(props) {
@@ -27,8 +28,8 @@ class Room extends React.Component {
             latitudeDelta: 0.0100,
             longitudeDelta: 0.0100
         };
-
     }
+
 
     render() {
 
@@ -45,23 +46,18 @@ class Room extends React.Component {
                 <Stars style={styles.rating} ratingValue={this.props.rowData.ratingValue} />
                 <Text style={styles.price}>{this.props.rowData.price} euros</Text>
               </View>
-                <View style={styles.cardHolder}></View>
                 <View style={styles.card}>
                     <Text style={styles.title}>{this.props.rowData.title}</Text>
-                    <TouchableOpacity >
-                        <Text style={styles.descText}>{this.props.rowData.description}</Text>
-                    </TouchableOpacity>
+                    <Desc description={this.props.rowData.description} size={16} lines={5} />
                     <View style={styles.metaHolder}>
                         <View style={styles.metaOne}>
-                            <Text style={styles.userAbout}>A propos de {this.props.rowData.user.account.username}
-                                :</Text>
+                            <Text style={styles.userAbout}>A propos de {this.props.rowData.user.account.username} :</Text>
                             <Text style={styles.userDesc} numberOfLines={6}>{this.props.rowData.user.account.description}</Text>
-                              <TouchableOpacity onPress={goToUser} >
-                                <Text>test</Text>
-                              </TouchableOpacity>
                         </View>
                         <View style={styles.metaTwo}>
-                              <UserAvatar photo={this.props.rowData.user.account.photos[0]} style={styles.userPhoto}/>
+                          <TouchableOpacity style={{width:100, height:100}} onPress={goToUser} >
+                            <UserAvatar photo={this.props.rowData.user.account.photos[0]} width={70} height={70} style={styles.userPhoto}/>
+                          </TouchableOpacity>
                         </View>
                     </View>
                     <View style={styles.roomMap}>
@@ -90,16 +86,11 @@ class Room extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#efefef',
-        paddingBottom: 10
+        backgroundColor: '#e6e3e3',
     },
     bigPhoto: {
         width: '100%',
         height: 280
-    },
-    userPhoto: {
-        width: 300,
-        height: 300
     },
     card: {
         flex: 1,
@@ -107,10 +98,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         top: 10,
         padding: 10,
-        paddingBottom: 30,
+        paddingBottom: 25,
         backgroundColor: 'white',
         marginTop: -50,
-        marginBottom: 25
+        marginBottom:70,
     },
     title: {
         color: '#FF5A5F',
@@ -125,11 +116,12 @@ const styles = StyleSheet.create({
     metaHolder: {
         flex:1,
         flexDirection: 'row',
-        alignItems:'center',
+        alignItems:'flex-start',
         justifyContent:'space-around',
     },
     metaOne: {
         flex:1,
+        flexGrow:3,
         padding: 10,
     },
     userAbout: {
@@ -141,19 +133,8 @@ const styles = StyleSheet.create({
     },
     metaTwo: {
         flex:1,
-        padding: 10,
-        paddingTop: 20,
-    },
-    descText: {
-        fontSize: 16,
-        textAlign: 'justify',
-        fontFamily: 'Circular_Air-Book',
         paddingTop: 10,
-        paddingLeft: 10,
-        paddingBottom: 10,
-        marginBottom: 10,
-        borderBottomColor: '#cccccc',
-        borderBottomWidth: StyleSheet.hairlineWidth
+
     },
     metaZero : {
         position:'absolute',

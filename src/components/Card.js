@@ -14,10 +14,16 @@ import {
 import {Actions} from 'react-native-router-flux';
 import Stars from './Stars';
 import UserAvatar from './UserAvatar';
+import Desc from './Desc';
+
+
 class Card extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+          lines:3,
+        }
     }
 
     render() {
@@ -41,13 +47,11 @@ class Card extends React.Component {
                     </Text>
                     <UserAvatar
                       photo={this.props.rowData.user.account.photos[0]}
-                      style={styles.userPhoto}/>
+                      width={60} height={60}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={goToRoom}>
                     <View style={styles.description}>
-                        <Text style={styles.descText} numberOfLines={3}>
-                            {this.props.rowData.description}
-                        </Text>
+                    <Desc description={this.props.rowData.description} size={16} />
                     </View>
                 </TouchableOpacity>
                 <View style={styles.meta}>
@@ -63,7 +67,7 @@ class Card extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#efefef'
+        backgroundColor: '#efefef',
     },
     header: {
         backgroundColor: '#FF5A5F',
@@ -110,15 +114,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 220
     },
-    description: {
-        width: '100%',
-        paddingTop: 15,
-        paddingBottom: 15,
-        paddingRight: 20,
-        paddingLeft: 15,
-        borderBottomColor: 'rgba(255, 255, 255, 0.4)',
-        borderBottomWidth: StyleSheet.hairlineWidth
-    },
     price: {
         position: 'absolute',
         top: 30,
@@ -130,17 +125,16 @@ const styles = StyleSheet.create({
         fontFamily: 'Circular_Air-Book'
     },
     meta: {
-        paddingTop: 15,
+        flex:1,
+        flexDirection:'row',
+        paddingTop:3,
         paddingBottom: 15,
-        paddingRight: 20,
+        paddingRight: 10,
         paddingLeft: 15
     },
-    descText: {
-        fontSize: 16,
-        fontFamily: 'Circular_Air-Book'
-    },
     metaText: {
-        fontFamily: 'Circular_Air-Book'
+        fontFamily: 'Circular_Air-Book',
+        lineHeight: 22,
     }
 });
 

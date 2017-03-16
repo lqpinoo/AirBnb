@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     rooms : {
       paddingLeft:15,
       paddingRight:15,
+      paddingBottom:60,
     },
 });
 

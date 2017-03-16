@@ -19,7 +19,7 @@ class User extends React.Component {
         source={{
             uri: this.props.photo
         }}
-        style={styles.userPhoto}/>
+        style={[styles.userPhoto, {width:this.props.width, height:this.props.height}]}/>
       );
     }
   }
@@ -28,8 +28,6 @@ class User extends React.Component {
 const styles = StyleSheet.create({
   userPhoto: {
       position: 'absolute',
-      width: 60,
-      height: 60,
       left: 5,
       top: 20,
       borderRadius: 50,
