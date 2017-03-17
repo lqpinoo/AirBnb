@@ -17,26 +17,14 @@ import {
 import {Actions} from 'react-native-router-flux';
 import Api from '../core/Api';
 import Store from 'react-native-simple-store';
-
+import Login from '../core/Login';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-          username:'',
-          password:'',
-        }
     }
 
     render() {
-
-      const submitUser = () =>Store.save('user', {
-        username: this.state.username,
-        password: this.state.password
-      })
-      .then(() => {
-        console.log('Saved', this.state.username, this.state.password);
-      });
 
 
         return (
@@ -44,29 +32,7 @@ class Home extends React.Component {
                 <View style={styles.logo}>
                     <Image source={require('../../assets/img/airbnb-w.png')} style={styles.imgLogo}/>
                 </View>
-                <TextInput
-                   style={styles.input}
-                   onChangeText={(username) => this.setState({username})}
-                   value={this.state.username}
-                 />
-                 <TextInput
-                    style={styles.input}
-                    onChangeText={(password) => this.setState({password})}
-                    value={this.state.password}
-                  />
-                  <Button
-                    onPress={submitUser}
-                    title="Submit"
-                    color="#40b2fb"
-                    accessibilityLabel="Submit"
-                  />
-                <TouchableHighlight onPress={Actions.rooms}>
-                    <View style={styles.buttonRooms}>
-                        <Text style={styles.pageTitle}>
-                            VOIR LES APPARTEMENTS SUR PARIS
-                        </Text>
-                    </View>
-                </TouchableHighlight>
+              <Login />
             </Image>
         );
     }
@@ -75,7 +41,7 @@ class Home extends React.Component {
 const styles = StyleSheet.create({
     cover: {
         flex: 1,
-        justifyContent: 'center',
+        paddingTop:70,
         alignItems: 'center',
         width: '100%',
         height: '100%',
@@ -86,16 +52,7 @@ const styles = StyleSheet.create({
         width: '90%',
         marginBottom:30,
     },
-    input: {
-      height: 50,
-      width: 300,
-      borderColor: 'white',
-      borderWidth: 2,
-      borderRadius:6,
-      marginTop:20,
-      marginBottom:20,
-      fontSize:18,
-    },
+
     imgLogo: {
         width: '100%',
         height: 100

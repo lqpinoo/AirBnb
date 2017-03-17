@@ -48,10 +48,10 @@ class User extends React.Component  {
           uri: rowData.photos[0]
       }} style={styles.photo}/>
     <View style={styles.infos}>
-      <Text style={styles.title}>{rowData.title}</Text>
-      <Text numberOfLines={3} style={styles.desc}>{rowData.description}</Text>
+      <Text><Text style={styles.title}>{rowData.title}</Text>{"\n"}
       <Text style={styles.price}>{rowData.price} euros</Text>
-      <Stars ratingValue={rowData.ratingValue} />
+      <Stars ratingValue={rowData.ratingValue} /> </Text>
+      <Desc description={rowData.description} lines={3} size={16} />
     </View>
     </View>
     )
@@ -64,10 +64,10 @@ class User extends React.Component  {
           uri: rowData.photos[0]
       }} style={styles.photo}/>
       <View style={styles.infos}>
-        <Text style={styles.title}>{rowData.title}</Text>
-        <Text numberOfLines={3} style={styles.desc}>{rowData.description}</Text>
-        <Text style={styles.price}>{rowData.price} euros</Text>
-        <Stars ratingValue={rowData.ratingValue} />
+        <Text><Text style={styles.title}>{rowData.title}</Text>{"\n"}
+        <Text style={styles.price}>{rowData.price} euros </Text>
+        <Stars ratingValue={rowData.ratingValue} /> </Text>
+        <Desc description={rowData.description} lines={3} size={16} />
       </View>
     </View>
     )
@@ -77,7 +77,7 @@ class User extends React.Component  {
     if (this.state.favorites.getRowCount() === 0) { // si l'objet account est vide on display un loader
         return (
             <View style={styles.containerWait}>
-                <ActivityIndicator/>
+                <ActivityIndicator color={'#FF5A5F'}/>
             </View>
         );
     } else {
@@ -86,7 +86,7 @@ class User extends React.Component  {
         <View style={styles.userIntro}>
             <Text style={styles.textIntro}><Text style={styles.name}>{this.state.user.username}</Text>
             {"\n"}
-            <Text style={styles.descIntro}>{this.state.user.description}</Text>
+            <Desc description={this.state.user.description} lines={2} size={14} />
           </Text>
             <Image source={{
                 uri: this.state.user.photos[0]
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   containerWait: {
       flex: 1,
       alignItems:'center',
+      justifyContent:'center',
       backgroundColor: '#fff',
   },
     container: {
@@ -143,6 +144,8 @@ const styles = StyleSheet.create({
       flex:1,
       padding:15,
       backgroundColor:'white',
+      borderBottomColor: '#cccccc',
+      borderBottomWidth: StyleSheet.hairlineWidth
     },
     name: {
       fontSize:30,
@@ -156,7 +159,7 @@ const styles = StyleSheet.create({
     photoIntro: {
       flex:1,
       width:'50%',
-      height:220,
+      height:250,
     },
     header: {
       backgroundColor:'#434958',
@@ -178,18 +181,23 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize:18,
-      color:'#333',
+      color:'#FF5A5F',
+      marginBottom:10,
       paddingTop:10,
       paddingBottom:10,
-      borderBottomColor: '#cccccc',
-      borderBottomWidth: StyleSheet.hairlineWidth
+
     },
     desc: {
-      paddingTop:10,
+      paddingTop:5,
       paddingBottom:10,
     },
     price : {
-
+      backgroundColor:'#eeba20',
+      padding:7,
+      paddingLeft: 8,
+      paddingRight:8,
+      color:'white',
+      marginRight: 8,
     },
 });
 

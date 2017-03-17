@@ -20,36 +20,45 @@ import Rooms from './src/scenes/Rooms';
 import Room from './src/scenes/Room';
 import User from './src/scenes/User';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Store from 'react-native-simple-store';
+
 
 export default class App extends Component {
+
+
   render() {
-    return (
-      <Router navigationBarStyle={{backgroundColor: '#FF5A5F'}} barButtonIconStyle={{ tintColor: '#fff' }} titleStyle={{color : "#FFF"}} >
-            <Scene
-           key={'tab'}
-           tabs
-           type={'replace'} style={{backgroundColor: '#fff'}}>
-             <Scene key={'home'} title={'Accueil'} hideNavBar={true} component={Home}
+  return(
+    <Router navigationBarStyle={{backgroundColor: '#FF5A5F'}} barButtonIconStyle={{ tintColor: '#fff' }} titleStyle={{color : "#FFF"}} >
+       <Scene
+         key={'tab'}
+         tabs
+         type={'replace'} style={{backgroundColor: '#fff'}}>
+           <Scene key={'home'} title={'Accueil'} hideNavBar={true} component={Home}
+             icon={(props) =>
+               <Icon
+                 name={'md-home'}
+                 style={{fontSize:25,}}
+                 color={props.selected ? '#FF5A5F' : '#888' }
+                 /> } />
+             <Scene key={'rooms'} hideNavBar={true} component={Rooms}
                icon={(props) =>
                  <Icon
-                   name={'md-home'}
-                   style={{fontSize:25,}}
-                   color={props.selected ? '#FF5A5F' : '#888' }
-                   /> } />
-               <Scene key={'rooms'} hideNavBar={true} component={Rooms}
-                 icon={(props) =>
-                   <Icon
-                    name={'md-pin'}
-                    style={{fontSize:25,}}
-                    color={props.selected ? '#FF5A5F' : '#888' }
-                    /> } />
-              <Scene key={'user'} hideNavBar={true} component={User}/>
-              <Scene key={'room'} hideNavBar={true} title={'Room'} component={Room}/>
-          </Scene>
+                  name={'md-pin'}
+                  style={{fontSize:25,}}
+                  color={props.selected ? '#FF5A5F' : '#888' }
+                  /> } />
+                <Scene key={'user'} hideNavBar={true} component={User}/>
+            <Scene key={'room'} hideNavBar={true} title={'Room'}  component={Room}/>
+        </Scene>
+  {/*
+        <Scene key={'home'} title={'Accueil'} hideNavBar={true} component={Home}/>
+        <Scene key={'rooms'} hideNavBar={true} component={Rooms}/>
+        <Scene key={'user'} hideNavBar={true} component={User}/>
+       <Scene key={'room'} hideNavBar={true} title={'Room'}  component={Room}/>
+         */}
+    </Router>
 
-
-      </Router>
-    );
+  );
   }
 }
 

@@ -33,9 +33,7 @@ class Desc extends React.Component {
 
   render() {
     return(
-      <View>
         <Text style={[styles.desc, {fontSize: this.props.size}] } numberOfLines={this.state.lines} onPress={this.toggleLines} >{this.props.description}</Text>
-      </View>
     );
   }
 }
@@ -43,7 +41,7 @@ class Desc extends React.Component {
 const styles = StyleSheet.create({
   desc: {
     padding: 15,
-    marginTop: 10,
+    marginTop:6,
     marginBottom: 10,
     textAlign: 'justify',
     fontFamily: 'Circular_Air-Book',

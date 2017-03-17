@@ -66,26 +66,6 @@ class Card extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#efefef',
-    },
-    header: {
-        backgroundColor: '#FF5A5F',
-        paddingTop: 20,
-        paddingBottom: 20,
-        paddingLeft: 15,
-        paddingRight: 15
-    },
-    pageTitle: {
-        fontSize: 26,
-        color: '#fff',
-        textAlign: 'center',
-        fontFamily: 'Circular_Air-Bold'
-    },
-    rooms: {
-        paddingLeft: 15,
-        paddingRight: 15
-    },
     card: {
         position: 'relative',
         backgroundColor: '#FFFFFF',
@@ -101,11 +81,12 @@ const styles = StyleSheet.create({
         elevation: 4
     },
     title: {
-        fontSize: 20,
+        fontSize: 19,
         fontFamily: 'Circular_Air-Bold',
         fontWeight: '900',
         paddingTop: 20,
         paddingLeft: 15,
+        paddingRight:10,
         paddingBottom: 20,
         borderBottomColor: 'rgba(255, 255, 255, 0.5)',
         borderBottomWidth: StyleSheet.hairlineWidth

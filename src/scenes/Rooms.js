@@ -47,8 +47,8 @@ class Rooms extends React.Component {
 
         if (this.state.dataSource.getRowCount() === 0) {
             return (
-                <View style={styles.container}>
-                    <ActivityIndicator/>
+                <View style={styles.containerWait}>
+                    <ActivityIndicator color={'#FF5A5F'} />
                 </View>
             );
         } else {
@@ -74,6 +74,12 @@ class Rooms extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  containerWait: {
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor: '#efefef',
+  },
     container: {
         backgroundColor: '#efefef',
     },
